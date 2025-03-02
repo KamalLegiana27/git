@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Background Animation - Banyak Hati Upright</title>
+  <style>
+    /* ------------------------- */
+    /* Style untuk Heart Animation */
+    /* ------------------------- */
+    body {
+      font-family: 'Indie Flower', cursive !important;
+      background: blanchedalmond; /* CAPE HONEY */
+      margin: 0;
+      padding: 0;
+    }
+    ::selection {
+      background: transparent;
+    }
+    .heart-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      bottom: -50px; /* Mulai dari luar layar bagian bawah */
+      background: pink;
+      opacity: 0.8;
+      /* Gunakan rotate(-45deg) agar bentuk hati tampil upright */
+      transform: rotate(-45deg);
+      animation: floatUp linear infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .heart::after {
+      left: 50%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+    /* ------------------------- */
+    /* Style untuk Card dan Photo */
+    /* ------------------------- */
+    .photo-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      text-align: center;
+      color: white;
+      opacity: 0; /* Mulai tersembunyi */
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Kode di bawah ini berasal dari cs.css */
+    ::selection {
+      background: transparent;
+    }
+    h4 {
+      font-size: 26px;
+      line-height: 1px;
+      font-family: 'Amatic SC', cursive !important;
+    }
+    .color1 { color: #1BBC9B; } /* MOUNTAIN MEADOW */
+    .color2 { color: #C0392B; } /* TALL POPPY */
+    .card {
+      color: #013243; /* SHERPA BLUE */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 500px;  /* Card diperbesar */
+      height: 600px; /* Card diperbesar */
+      background: #e0e1dc;
+      transform-style: preserve-3d;
+      transform: translate(-50%,-50%) perspective(2000px);
+      /* Menyesuaikan box-shadow untuk ukuran card yang lebih besar */
+      box-shadow: inset 500px 0 50px rgba(0,0,0,0.5), 20px 0 60px rgba(0,0,0,0.5);
+      transition: 1s;
+    }
+    .card:hover {
+      transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+      box-shadow: inset 20px 0 50px rgba(0,0,0,0.5), 0 10px 100px rgba(0,0,0,0.5);
+    }
+    .card:before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: #BAC1BA;
+      transform-origin: bottom;
+      transform: skewX(-45deg);
+    }
+    .card:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -5px;
+      width: 5px;
+      height: 100%;
+      background: #92A29C;
+      transform-origin: left;
+      transform: skewY(-45deg);
+    }
+    .card .imgBox {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-origin: left;
+      transition: 0.7s;
+    }
+    .card .bark {
+      position: absolute;
+      background: #e0e1dc;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: 0.7s;
+    }
+    .card .imgBox img {
+      /* Gambar mengisi seluruh area card */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card:hover .imgBox {
+      transform: rotateY(-135deg);
+    }
+    .card:hover .bark {
+      opacity: 1;
+      transition: 0.6s;
+      box-shadow: 300px 200px 100px rgba(0,0,0,0.4) inset;
+    }
+    .card .details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      padding: 0 0 0 10px;
+      z-index: -1;
+      margin-top: 70px;
+    }
+    .card .details p {
+      font-size: 15px;
+      line-height: 5px;
+      transform: rotate(-10deg);
+      padding: 0 0 0 20px;
+    }
+    .card .details h4 {
+      text-align: center;
+    }
+    .text-right {
+      text-align: right;
+    }
+    /* ------------------------- */
+    /* Style untuk gambar kecil di details */
+    /* ------------------------- */
+    .card .details .small-img {
+      width: 80px;  /* Ukuran gambar kecil */
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid #013243;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: white;
+      background-color: burlywood;
+      text-decoration: none;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: blanchedalmond;
+    }
+  </style>
+</head>
+<body>
+  <div class="heart-container" id="heartContainer"></div>
+
+  <div class="photo-container">
+    <div class="card">
+      <div class="imgBox">
+        <div class="bark"></div>
+        <img src="ko.jpg" alt="Deskripsi Foto">
+        <h2>HALLOWWW</h2>
+      </div>
+      <div class="details">
+        <!-- Gambar kecil ditambahkan di sini -->
+        <img src="ja.jpg" alt="Small" class="small-img">
+        <h4 class="color1">For you cici</h4>
+        <p>haii...</p>
+        <p>aku tak tau bagaimana kehidupanmu sehari",</p>
+        <p>namun aku selalu ingin terlibat bersamamu ,</p>
+        <p>dalam keadan senang maupun sedih,</p>
+        <p>ajak lah ajak lah aku bersamamu,</p>
+        <p>aku tau aku bukan apa-apa,</p>
+        <p>percayalah aku ingin selalu mencoba hal-hal baik ,</p>
+        <p>dan hal baru bersamamu...</p>
+        <p>soo you have to stay enthusiastic about life</p>
+        <br>
+        <a href="index.html" class="btn">Pencet Aku </a>
+        <h3 class="text-right">K</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tambahkan elemen audio untuk memutar lagu -->
+  <audio autoplay loop preload="auto">
+    <source src="Cantik.mp3" type="audio/mpeg">
+
+  </audio>
+
+  <script>
+    // Menghasilkan banyak hati secara dinamis
+    const container = document.getElementById('heartContainer');
+    const heartCount = 200; // Ubah nilai ini untuk menambah jumlah hati
+
+    for (let i = 0; i < heartCount; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      // Mengatur ukuran acak antara 10px hingga 30px
+      const size = Math.random() * 20 + 10;
+      heart.style.width = size + 'px';
+      heart.style.height = size + 'px';
+      // Menetapkan posisi horizontal acak
+      heart.style.left = Math.random() * 100 + '%';
+      // Mengatur durasi animasi acak antara 2s hingga 3s
+      const duration = Math.random() * 1 + 2;
+      heart.style.animationDuration = duration + 's';
+      // Mengatur delay animasi acak antara 0s hingga 2s
+      const delay = Math.random() * 2;
+      heart.style.animationDelay = delay + 's';
+      // Mengatur opacity acak agar variasi tampilan
+      heart.style.opacity = Math.random() * 0.5 + 0.5;
+      container.appendChild(heart);
+    }
+    const audio = document.getElementById('bg-music');
+  audio.addEventListener('loadedmetadata', () => {
+    // Mulai dari detik ke-10
+    audio.currentTime = 20
+  });
+  
+  // Setelah 30 detik pemutaran, hentikan lagu
+  setTimeout(() => {
+    audio.pause();
+  }, 30000);
+  </script>
+</body>
+</html>

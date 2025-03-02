@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Page</title>
+    <style>
+        /* Center div in the middle of screen */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: blanchedalmond;
+            font-family: Arial, sans-serif;
+        }
+        
+        .greetings {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .greetings span {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0 2px;
+        }
+        
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .greetings br {
+            margin-bottom: 10px;
+        }
+        .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background-color:  burlywood;
+        text-decoration: none;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .btn:hover {
+        background-color:   blanchedalmond;
+    }
+    </style>
+</head>
+<body>
+    <div class="greetings">
+        <span style="--i:1">H</span>
+        <span style="--i:2">a</span>
+        <span style="--i:3">l</span>
+        <span style="--i:4">l</span>
+        <span style="--i:5">o</span>
+        <br>
+        <span style="--i:6">C</span>
+        <span style="--i:7">i</span>
+        <span style="--i:8">C</span>
+        <span style="--i:9">i</span>
+        <br>
+        <span style="--i:10">P</span>
+        <span style="--i:11">e</span>
+        <span style="--i:12">n</span>
+        <span style="--i:13">g</span>
+        <span style="--i:14">u</span>
+        <span style="--i:15">a</span>
+        <span style="--i:16">s</span>
+        <span >a</span>
+        <br>
+        <span style="--i:18">B</span>
+        <span style="--i:19">u</span>
+        <span style="--i:20">m</span>
+        <span style="--i:21">i</span>
+        <br>
+          
+          
+        <a href="heart.html" class="btn">Click</a>
+    </div>
+</body>
+</html>
